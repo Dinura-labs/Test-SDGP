@@ -14,11 +14,14 @@ import {
 import { Mail, Menu, ArrowLeft, Eye, EyeOff, Check } from 'lucide-react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import SocialButton from '../components/SocialButton';
+import { useNavigation } from '@react-navigation/native';
+import { RootStackNavigationProp } from '../navigation/AppNavigator';
 
 // Screen එකේ පළල සහ උස ලබා ගැනීම
 const { width, height } = Dimensions.get('window');
 
-const MultiSignupScreen = ({ onSignupComplete }: { onSignupComplete: () => void }) => {
+const MultiSignupScreen = () => {
+    const navigation = useNavigation<RootStackNavigationProp>();
     const [step, setStep] = useState(1);
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -27,12 +30,12 @@ const MultiSignupScreen = ({ onSignupComplete }: { onSignupComplete: () => void 
     // Step 1: Responsive Layout for Mobile
     const renderStep1 = () => (
         <ScrollView 
-            contentContainerStyle={{ 
-                flexGrow: 1, 
-                justifyContent: 'space-between', 
-                alignItems: 'center', 
-                paddingBottom: 20, 
-                paddingHorizontal: 24 
+            contentContainerStyle={{
+                flexGrow: 1,
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                paddingBottom: 20,
+                paddingHorizontal: 24
             }}
             showsVerticalScrollIndicator={false}
             className="w-full"
@@ -68,7 +71,7 @@ const MultiSignupScreen = ({ onSignupComplete }: { onSignupComplete: () => void 
                     <View className="items-center mt-1">
                         <Text 
                             className="text-[#0D1B2A] font-extrabold text-center"
-                            style={{ 
+                            style={{
                                 fontSize: width * 0.085, // ලොකු අකුරු Responsive කළා
                                 color: '#0D1B2A',
                                 lineHeight: width * 0.1
@@ -175,7 +178,7 @@ const MultiSignupScreen = ({ onSignupComplete }: { onSignupComplete: () => void 
 
                     <TouchableOpacity
                         className="bg-[#269396] h-[60px] rounded-[15px] justify-center items-center"
-                        onPress={onSignupComplete}
+                        onPress={() => navigation.navigate('Tour1')}
                     >
                         <Text className="text-white text-lg font-bold">Continue</Text>
                     </TouchableOpacity>
@@ -183,7 +186,6 @@ const MultiSignupScreen = ({ onSignupComplete }: { onSignupComplete: () => void 
             </ScrollView>
         </KeyboardAvoidingView>
     );
-
     return (
         <LinearGradient
             colors={step === 1 ? ['#FFFDF5', '#F0F7FF'] : ['#F8FBFF', '#F8FBFF']}

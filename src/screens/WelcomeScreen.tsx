@@ -7,8 +7,12 @@ import {
     TouchableOpacity,
 } from 'react-native';
 import { MoveRight } from 'lucide-react-native';
+import { useNavigation } from '@react-navigation/native';
+import { RootStackNavigationProp } from '../navigation/AppNavigator';
 
-const WelcomeScreen = ({ onGetStarted }: { onGetStarted: () => void }) => {
+const WelcomeScreen = () => {
+    const navigation = useNavigation<RootStackNavigationProp>();
+
     return (
         <SafeAreaView className="flex-1 bg-white">
             <View className="flex-1 bg-white w-full max-w-[480px] self-center">
@@ -41,7 +45,7 @@ const WelcomeScreen = ({ onGetStarted }: { onGetStarted: () => void }) => {
                     <View className="w-full items-center">
                         <TouchableOpacity 
                             className="bg-black flex-row items-center justify-center py-[18px] px-[35px] rounded-[40px] w-full"
-                            onPress={onGetStarted}
+                            onPress={() => navigation.navigate('Signup')}
                         >
                             <Text className="text-white text-lg font-semibold">Get Started</Text>
                             <MoveRight color="#FFF" size={20} style={{ marginLeft: 10 }} />
