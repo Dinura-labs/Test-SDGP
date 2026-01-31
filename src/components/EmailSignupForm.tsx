@@ -3,9 +3,10 @@ import {
     View,
     Text,
     TextInput,
-    StyleSheet,
     TouchableOpacity,
-    ScrollView
+    ScrollView,
+    KeyboardAvoidingView,
+    Platform
 } from 'react-native';
 import { Eye, EyeOff, Check } from 'lucide-react-native';
 
@@ -15,187 +16,93 @@ const EmailSignupForm = () => {
     const [agree, setAgree] = useState(false);
 
     return (
-        <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={styles.container}>
-            <Text style={styles.headerTitle}>Sign up</Text>
-
-            <View style={styles.loginPrompt}>
-                <Text style={styles.alreadyAccountText}>Already have an account? </Text>
-                <TouchableOpacity>
-                    <Text style={styles.signInLink}>Sign in</Text>
-                </TouchableOpacity>
-            </View>
-
-            <View style={styles.form}>
-                <TextInput
-                    style={styles.input}
-                    placeholder="Email Address"
-                    placeholderTextColor="#999"
-                    keyboardType="email-address"
-                />
-
-                <View style={styles.passwordContainer}>
-                    <TextInput
-                        style={styles.passwordInput}
-                        placeholder="Password"
-                        placeholderTextColor="#999"
-                        secureTextEntry={!showPassword}
-                    />
-                    <TouchableOpacity onPress={() => setShowPassword(!showPassword)}>
-                        {showPassword ? <EyeOff size={20} color="#269396" /> : <Eye size={20} color="#269396" />}
-                    </TouchableOpacity>
-                </View>
-
-                <View style={styles.passwordContainer}>
-                    <TextInput
-                        style={styles.passwordInput}
-                        placeholder="Confirm Password"
-                        placeholderTextColor="#999"
-                        secureTextEntry={!showConfirmPassword}
-                    />
-                    <TouchableOpacity onPress={() => setShowConfirmPassword(!showConfirmPassword)}>
-                        {showConfirmPassword ? <EyeOff size={20} color="#269396" /> : <Eye size={20} color="#269396" />}
-                    </TouchableOpacity>
-                </View>
-
-                <TouchableOpacity
-                    style={styles.checkboxContainer}
-                    onPress={() => setAgree(!agree)}
-                >
-                    <View style={[styles.checkbox, agree && styles.checkboxChecked]}>
-                        {agree && <Check size={16} color="#FFF" strokeWidth={3} />}
+        <KeyboardAvoidingView
+            behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+            className="flex-1 w-full bg-[#F8FBFF]"
+        >
+            <ScrollView
+                showsVerticalScrollIndicator={false}
+                contentContainerStyle={{ flexGrow: 1, paddingHorizontal: 24, paddingBottom: 40 }}
+                className="w-full pt-6"
+            >
+                {/* Header Section */}
+                <View className="mb-8">
+                    <Text className="text-[36px] font-bold text-[#0D1B2A] mb-1">Sign up</Text>
+                    <View className="flex-row items-center">
+                        <Text className="text-[15px] text-[#666]">Already have an account? </Text>
+                        <TouchableOpacity>
+                            <Text className="text-[15px] text-[#269396] font-bold">Sign in</Text>
+                        </TouchableOpacity>
                     </View>
-                    <Text style={styles.checkboxLabel}>I agree to terms & conditions</Text>
-                </TouchableOpacity>
+                </View>
 
-                <Text style={styles.disclaimerText}>
-                    By continuing, I agree to SolarKoala's <Text style={styles.linkText}>Terms of Service</Text>.
-                    I also consent to the use of my app usage data to improve SolarKoala and the relevancy
-                    of advertising campaigns for the app. Team CS-73 will never use your journal entries:
-                    only you can read them. See our <Text style={styles.linkText}>Privacy Policy</Text> for more information.
-                </Text>
+                {/* Form Inputs Section */}
+                <View className="w-full">
+                    {/* Email Input */}
+                    <TextInput
+                        className="bg-white h-[60px] rounded-2xl px-5 text-[15px] mb-4 border border-[#EFF0F6] shadow-sm text-[#0D1B2A]"
+                        placeholder="Email Address"
+                        placeholderTextColor="#9CA3AF"
+                        keyboardType="email-address"
+                        autoCapitalize="none"
+                    />
 
-                <TouchableOpacity style={styles.continueButton}>
-                    <Text style={styles.continueButtonText}>Continue</Text>
-                </TouchableOpacity>
-            </View>
-        </ScrollView>
+                    {/* Password Input */}
+                    <View className="flex-row items-center bg-white h-[60px] rounded-2xl px-5 mb-4 border border-[#EFF0F6] shadow-sm">
+                        <TextInput
+                            className="flex-1 text-[15px] text-[#0D1B2A]"
+                            placeholder="Password"
+                            placeholderTextColor="#9CA3AF"
+                            secureTextEntry={!showPassword}
+                        />
+                        <TouchableOpacity onPress={() => setShowPassword(!showPassword)} className="p-2">
+                            {showPassword ? <EyeOff size={20} color="#269396" /> : <Eye size={20} color="#269396" />}
+                        </TouchableOpacity>
+                    </View>
+
+                    {/* Confirm Password Input */}
+                    <View className="flex-row items-center bg-white h-[60px] rounded-2xl px-5 mb-6 border border-[#EFF0F6] shadow-sm">
+                        <TextInput
+                            className="flex-1 text-[15px] text-[#0D1B2A]"
+                            placeholder="Confirm Password"
+                            placeholderTextColor="#9CA3AF"
+                            secureTextEntry={!showConfirmPassword}
+                        />
+                        <TouchableOpacity onPress={() => setShowConfirmPassword(!showConfirmPassword)} className="p-2">
+                            {showConfirmPassword ? <EyeOff size={20} color="#269396" /> : <Eye size={20} color="#269396" />}
+                        </TouchableOpacity>
+                    </View>
+
+                    {/* Checkbox Section */}
+                    <TouchableOpacity
+                        className="flex-row items-center mb-6"
+                        activeOpacity={0.7}
+                        onPress={() => setAgree(!agree)}
+                    >
+                        <View className={`w-[22px] h-[22px] rounded-md border-2 border-[#269396] mr-3 justify-center items-center ${agree ? 'bg-[#269396]' : ''}`}>
+                            {agree && <Check size={14} color="#FFF" strokeWidth={3} />}
+                        </View>
+                        <Text className="text-[15px] text-[#0D1B2A] font-medium">I agree to terms & conditions</Text>
+                    </TouchableOpacity>
+
+                    {/* Disclaimer Text */}
+                    <Text className="text-[12px] text-[#718096] leading-[20px] mb-8 text-left">
+                        By continuing, I agree to SolarKoala's <Text className="text-[#269396] font-semibold">Terms of Service</Text>.
+                        I also consent to the use of my app usage data to improve SolarKoala. Team CS-73 will never use your journal entries.
+                        See our <Text className="text-[#269396] font-semibold">Privacy Policy</Text> for more information.
+                    </Text>
+
+                    {/* Continue Button */}
+                    <TouchableOpacity 
+                        className="bg-[#269396] h-[60px] rounded-[16px] justify-center items-center shadow-sm active:opacity-90"
+                        style={{ shadowColor: '#269396', shadowOffset: { width: 0, height: 4 }, shadowOpacity: 0.2, shadowRadius: 8, elevation: 4 }}
+                    >
+                        <Text className="text-white text-[17px] font-bold">Continue</Text>
+                    </TouchableOpacity>
+                </View>
+            </ScrollView>
+        </KeyboardAvoidingView>
     );
 };
-
-const styles = StyleSheet.create({
-    container: {
-        paddingTop: 20,
-        paddingBottom: 40,
-    },
-    headerTitle: {
-        fontSize: 36,
-        fontWeight: 'bold',
-        color: '#0D1B2A',
-        marginBottom: 10,
-    },
-    loginPrompt: {
-        flexDirection: 'row',
-        marginBottom: 40,
-    },
-    alreadyAccountText: {
-        fontSize: 16,
-        color: '#666',
-    },
-    signInLink: {
-        fontSize: 16,
-        color: '#269396',
-        fontWeight: 'bold',
-    },
-    form: {
-        width: '100%',
-    },
-    input: {
-        backgroundColor: '#FFF',
-        height: 60,
-        borderRadius: 12,
-        paddingHorizontal: 20,
-        fontSize: 16,
-        marginBottom: 20,
-        borderWidth: 1,
-        borderColor: '#F0F0F0',
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.05,
-        shadowRadius: 5,
-        elevation: 2,
-    },
-    passwordContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        backgroundColor: '#FFF',
-        height: 60,
-        borderRadius: 12,
-        paddingHorizontal: 20,
-        marginBottom: 20,
-        borderWidth: 1,
-        borderColor: '#F0F0F0',
-        shadowColor: '#000',
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.05,
-        shadowRadius: 5,
-        elevation: 2,
-    },
-    passwordInput: {
-        flex: 1,
-        fontSize: 16,
-    },
-    checkboxContainer: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginTop: 30,
-        marginBottom: 25,
-    },
-    checkbox: {
-        width: 24,
-        height: 24,
-        borderRadius: 6,
-        borderWidth: 2,
-        borderColor: '#269396',
-        marginRight: 12,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    checkboxChecked: {
-        backgroundColor: '#269396',
-    },
-    checkboxLabel: {
-        fontSize: 16,
-        color: '#0D1B2A',
-        fontWeight: '500',
-    },
-    disclaimerText: {
-        fontSize: 12,
-        color: '#666',
-        lineHeight: 18,
-        textAlign: 'left',
-        marginBottom: 40,
-    },
-    linkText: {
-        color: '#269396',
-        fontWeight: '600',
-    },
-    continueButton: {
-        backgroundColor: '#269396',
-        height: 60,
-        borderRadius: 15,
-        justifyContent: 'center',
-        alignItems: 'center',
-        shadowColor: '#269396',
-        shadowOffset: { width: 0, height: 4 },
-        shadowOpacity: 0.3,
-        shadowRadius: 8,
-        elevation: 5,
-    },
-    continueButtonText: {
-        color: '#FFF',
-        fontSize: 18,
-        fontWeight: 'bold',
-    },
-});
 
 export default EmailSignupForm;

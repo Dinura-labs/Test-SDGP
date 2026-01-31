@@ -1,0 +1,31 @@
+::1 - - [31/Jan/2026 14:22:22] "HEAD / HTTP/1.1" 200 -
+::1 - - [31/Jan/2026 14:22:50] "GET / HTTP/1.1" 200 -
+::1 - - [31/Jan/2026 14:22:51] "GET /_expo/static/css/web-98298e9fd3b44550cdb5a638cc990831.css HTTP/1.1" 200 -
+::1 - - [31/Jan/2026 14:22:51] "GET /_expo/static/js/web/index-73b5802a9db29553b1d790420211c9af.js HTTP/1.1" 200 -
+::1 - - [31/Jan/2026 14:22:52] "GET /assets/src/assets/logo.b65d0004157687688211ef5aaefd4c72.jpg HTTP/1.1" 200 -
+::1 - - [31/Jan/2026 14:22:55] "GET /assets/src/assets/koala1.719801195cde88780c71df16db2c704b.jpg HTTP/1.1" 200 -
+::1 - - [31/Jan/2026 14:22:55] "GET /assets/src/assets/Google_Favicon.11640d041f09df9ab93217a627de6828.png HTTP/1.1" 200 -
+::1 - - [31/Jan/2026 14:23:09] "GET / HTTP/1.1" 200 -
+::1 - - [31/Jan/2026 14:24:07] "GET / HTTP/1.1" 304 -
+::1 - - [31/Jan/2026 14:24:08] "GET /_expo/static/js/web/index-73b5802a9db29553b1d790420211c9af.js HTTP/1.1" 304 -
+::1 - - [31/Jan/2026 14:24:08] "GET /assets/src/assets/logo.b65d0004157687688211ef5aaefd4c72.jpg HTTP/1.1" 304 -
+::1 - - [31/Jan/2026 14:24:11] "GET /assets/src/assets/Google_Favicon.11640d041f09df9ab93217a627de6828.png HTTP/1.1" 304 -
+::1 - - [31/Jan/2026 14:24:11] "GET /assets/src/assets/koala1.719801195cde88780c71df16db2c704b.jpg HTTP/1.1" 304 -
+::1 - - [31/Jan/2026 14:24:30] code 404, message File not found
+::1 - - [31/Jan/2026 14:24:30] code 404, message File not found
+::1 - - [31/Jan/2026 14:24:30] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 -
+::1 - - [31/Jan/2026 14:24:30] "GET /apple-touch-icon.png HTTP/1.1" 404 -
+::1 - - [31/Jan/2026 14:24:30] "GET /favicon.ico HTTP/1.1" 200 -
+::1 - - [31/Jan/2026 14:24:30] "GET /assets/src/assets/koala1.719801195cde88780c71df16db2c704b.jpg HTTP/1.1" 200 -
+::1 - - [31/Jan/2026 14:24:30] "GET /favicon.ico HTTP/1.1" 200 -
+::1 - - [31/Jan/2026 14:24:40] "GET / HTTP/1.1" 200 -
+::1 - - [31/Jan/2026 14:24:40] "GET /_expo/static/css/web-98298e9fd3b44550cdb5a638cc990831.css HTTP/1.1" 200 -
+::1 - - [31/Jan/2026 14:24:40] "GET /_expo/static/js/web/index-73b5802a9db29553b1d790420211c9af.js HTTP/1.1" 200 -
+::1 - - [31/Jan/2026 14:24:40] "GET /assets/src/assets/logo.b65d0004157687688211ef5aaefd4c72.jpg HTTP/1.1" 200 -
+::1 - - [31/Jan/2026 14:24:45] "GET /assets/src/assets/koala1.719801195cde88780c71df16db2c704b.jpg HTTP/1.1" 200 -
+::1 - - [31/Jan/2026 14:24:45] "GET /assets/src/assets/Google_Favicon.11640d041f09df9ab93217a627de6828.png HTTP/1.1" 200 -
+::1 - - [31/Jan/2026 14:27:31] "GET / HTTP/1.1" 200 -
+::1 - - [31/Jan/2026 14:27:31] "GET /_expo/static/js/web/index-1d6cf19bfe377ca7e7ae5aac77fc9872.js HTTP/1.1" 200 -
+::1 - - [31/Jan/2026 14:27:32] "GET /assets/src/assets/logo.b65d0004157687688211ef5aaefd4c72.jpg HTTP/1.1" 200 -
+::1 - - [31/Jan/2026 14:27:35] "GET /assets/src/assets/Google_Favicon.11640d041f09df9ab93217a627de6828.png HTTP/1.1" 200 -
+::1 - - [31/Jan/2026 14:27:35] "GET /assets/src/assets/koala1.719801195cde88780c71df16db2c704b.jpg HTTP/1.1" 200 -
