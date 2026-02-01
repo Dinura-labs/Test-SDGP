@@ -13,6 +13,7 @@ import TourScreen4 from '../screens/TourScreen4'; // Import TourScreen4
 import TourScreen5 from '../screens/TourScreen5'; // Import TourScreen5
 import TechnicianBookingScreen from '../screens/TechnicianBookingScreen';
 import BatteryStatusScreen from '../screens/BatteryStatusScreen';
+import WeatherAlertScreen from '../screens/WeatherAlertScreen';
 
 // Type Definitions
 export type RootStackParamList = {
@@ -26,6 +27,7 @@ export type RootStackParamList = {
   Tour5: undefined; // Add Tour5 to type definition
   TechnicianBooking: undefined;
   BatteryStatus: undefined;
+  WeatherAlert: undefined;
 };
 
 export type RootStackNavigationProp = NativeStackNavigationProp<RootStackParamList>;
@@ -108,6 +110,9 @@ export default function AppNavigator() {
 
         {/* 10. Battery Status Screen */}
         <Stack.Screen name="BatteryStatus" component={BatteryStatusScreen} />
+
+        {/* 11. Weather Alert Screen */}
+        <Stack.Screen name="WeatherAlert" component={WeatherAlertScreen} />
 
       </Stack.Navigator>
     </NavigationContainer>

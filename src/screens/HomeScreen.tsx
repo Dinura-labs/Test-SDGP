@@ -202,7 +202,7 @@ const HomeScreen = () => {
                     <TouchableOpacity onPress={() => navigation.navigate('BatteryStatus')}><BatteryIcon color="#056B87" /></TouchableOpacity>
                     <TouchableOpacity><UserIcon color="#056B87" /></TouchableOpacity>
                     <TouchableOpacity onPress={() => navigation.navigate('TechnicianBooking')}><BoltIcon color="#056B87" /></TouchableOpacity>
-                    <TouchableOpacity><ChatIcon color="#056B87" /></TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate('WeatherAlert')}><ChatIcon color="#056B87" /></TouchableOpacity>
                 </View>
 
             </SafeAreaView>
