@@ -11,6 +11,7 @@ import TourScreen2 from '../screens/TourScreen2';
 import TourScreen3 from '../screens/TourScreen3';
 import TourScreen4 from '../screens/TourScreen4'; // Import TourScreen4
 import TourScreen5 from '../screens/TourScreen5'; // Import TourScreen5
+import TechnicianBookingScreen from '../screens/TechnicianBookingScreen';
 
 // Type Definitions
 export type RootStackParamList = {
@@ -22,6 +23,7 @@ export type RootStackParamList = {
   Tour3: undefined;
   Tour4: undefined; 
   Tour5: undefined; // Add Tour5 to type definition
+  TechnicianBooking: undefined;
 };
 
 export type RootStackNavigationProp = NativeStackNavigationProp<RootStackParamList>;
@@ -98,6 +100,9 @@ export default function AppNavigator() {
 
         {/* 8. Home Screen */}
         <Stack.Screen name="Home" component={HomeScreen} />
+
+        {/* 9. Technician Booking Screen */}
+        <Stack.Screen name="TechnicianBooking" component={TechnicianBookingScreen} />
 
       </Stack.Navigator>
     </NavigationContainer>
