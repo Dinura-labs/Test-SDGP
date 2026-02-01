@@ -55,3 +55,12 @@ Web Bundled 93ms index.ts (1 module)
 Web ./index.ts ░░░░░░░░░░░░░░░░  0.0% (0/1)
 Web Bundled 75ms index.ts (1 module)
  LOG  [web] Logs will appear in the browser console
+Web ./index.ts ░░░░░░░░░░░░░░░░  0.0% (0/1)
+Web Bundled 145ms index.ts (1 module)
+ LOG  [web] Logs will appear in the browser console
+Web ./index.ts ░░░░░░░░░░░░░░░░  0.0% (0/1)
+Web Bundled 195ms index.ts (1 module)
+ LOG  [web] Logs will appear in the browser console
+Web ./index.ts ░░░░░░░░░░░░░░░░  0.0% (0/1)
+Web Bundled 69ms index.ts (1 module)
+ LOG  [web] Logs will appear in the browser console

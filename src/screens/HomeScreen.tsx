@@ -198,7 +198,7 @@ const HomeScreen = () => {
                         elevation: 10
                     }}
                 >
-                    <TouchableOpacity><HomeIcon color="#056B87" /></TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate('SmartSuggestions')}><HomeIcon color="#056B87" /></TouchableOpacity>
                     <TouchableOpacity onPress={() => navigation.navigate('BatteryStatus')}><BatteryIcon color="#056B87" /></TouchableOpacity>
                     <TouchableOpacity><UserIcon color="#056B87" /></TouchableOpacity>
                     <TouchableOpacity onPress={() => navigation.navigate('TechnicianBooking')}><BoltIcon color="#056B87" /></TouchableOpacity>
