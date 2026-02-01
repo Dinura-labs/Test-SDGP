@@ -1,0 +1,129 @@
+
+> test-sdgp@1.0.0 web
+> expo start --web --clear
+
+Starting project at /Users/dinu/Test-SDGP
+Starting Metro Bundler
+warning: Bundler cache is empty, rebuilding (this may take a minute)
+Waiting on http://localhost:8081
+Logs for your project will appear below.
+Web ./index.ts ░░░░░░░░░░░░░░░░  0.0% (0/1)
+Web ./index.ts ▓▓▓▓▓▓▓▓▓▓▓▓░░░░ 77.7% ( 459/2198)
+Web ./index.ts ▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓░ 98.1% (2231/2252)
+Web Bundled 7571ms index.ts (2257 modules)
+ LOG  [web] Logs will appear in the browser console
+Web ./index.ts ░░░░░░░░░░░░░░░░  0.0% (0/1)
+Web Bundled 324ms index.ts (1 module)
+ LOG  [web] Logs will appear in the browser console
+Web ./index.ts ░░░░░░░░░░░░░░░░  0.0% (0/1)
+Web Bundled 330ms index.ts (1 module)
+ LOG  [web] Logs will appear in the browser console
+Unable to resolve "../assets/koala1.png" from "src/screens/MultiSignupScreen.tsx"
+[0m [90m 49 |[39m [90m                */[39m}
+ [90m 50 |[39m                 [33m<[39m[33mImage[39m
+[31m[1m>[22m[39m[90m 51 |[39m                     source[33m=[39m{require([32m'../assets/koala1.png'[39m)}
+ [90m    |[39m                                      [31m[1m^[22m[39m
+ [90m 52 |[39m                     style[33m=[39m{{
+ [90m 53 |[39m                         width[33m:[39m width [33m*[39m [35m0.8[39m[33m,[39m
+ [90m 54 |[39m                         height[33m:[39m width [33m*[39m [35m0.8[39m[33m,[39m[0m
+
+Import stack:
+
+ src/screens/MultiSignupScreen.tsx
+ | import "../assets/koala1.png"
+
+ src/navigation/AppNavigator.tsx
+ | import "../screens/MultiSignupScreen"
+
+ App.tsx
+ | import "./src/navigation/AppNavigator"
+
+ index.ts
+ | import "./App"
+
+ 
+ | import "./index.ts"
+
+Web ./index.ts ░░░░░░░░░░░░░░░░  0.0% (0/1)
+Web Bundling failed 75ms index.ts (1 module)
+Unable to resolve "../assets/koala1.jpg" from "src/screens/MultiSignupScreen.tsx"
+[0m [90m 49 |[39m [90m                */[39m}
+ [90m 50 |[39m                 [33m<[39m[33mImage[39m
+[31m[1m>[22m[39m[90m 51 |[39m                     source[33m=[39m{require([32m'../assets/koala1.jpg'[39m)}
+ [90m    |[39m                                      [31m[1m^[22m[39m
+ [90m 52 |[39m                     style[33m=[39m{{
+ [90m 53 |[39m                         width[33m:[39m width [33m*[39m [35m0.8[39m[33m,[39m
+ [90m 54 |[39m                         height[33m:[39m width [33m*[39m [35m0.8[39m[33m,[39m[0m
+
+Import stack:
+
+ src/screens/MultiSignupScreen.tsx
+ | import "../assets/koala1.jpg"
+
+ src/navigation/AppNavigator.tsx
+ | import "../screens/MultiSignupScreen"
+
+ App.tsx
+ | import "./src/navigation/AppNavigator"
+
+ index.ts
+ | import "./App"
+
+ 
+ | import "./index.ts"
+
+Web ./index.ts ░░░░░░░░░░░░░░░░  0.0% (0/1)
+Web Bundling failed 38ms index.ts (1 module)
+Unable to resolve "../assets/koala1.jpg" from "src/screens/MultiSignupScreen.tsx"
+[0m [90m 49 |[39m [90m                */[39m}
+ [90m 50 |[39m                 [33m<[39m[33mImage[39m
+[31m[1m>[22m[39m[90m 51 |[39m                     source[33m=[39m{require([32m'../assets/koala1.jpg'[39m)}
+ [90m    |[39m                                      [31m[1m^[22m[39m
+ [90m 52 |[39m                     style[33m=[39m{{
+ [90m 53 |[39m                         width[33m:[39m width [33m*[39m [35m0.8[39m[33m,[39m
+ [90m 54 |[39m                         height[33m:[39m width [33m*[39m [35m0.8[39m[33m,[39m[0m
+
+Import stack:
+
+ src/screens/MultiSignupScreen.tsx
+ | import "../assets/koala1.jpg"
+
+ src/navigation/AppNavigator.tsx
+ | import "../screens/MultiSignupScreen"
+
+ App.tsx
+ | import "./src/navigation/AppNavigator"
+
+ index.ts
+ | import "./App"
+
+ 
+ | import "./index.ts"
+
+Web Bundling failed 14ms index.ts (1 module)
+Unable to resolve "../assets/koala1.jpg" from "src/screens/MultiSignupScreen.tsx"
+[0m [90m 49 |[39m [90m                */[39m}
+ [90m 50 |[39m                 [33m<[39m[33mImage[39m
+[31m[1m>[22m[39m[90m 51 |[39m                     source[33m=[39m{require([32m'../assets/koala1.jpg'[39m)}
+ [90m    |[39m                                      [31m[1m^[22m[39m
+ [90m 52 |[39m                     style[33m=[39m{{
+ [90m 53 |[39m                         width[33m:[39m width [33m*[39m [35m0.8[39m[33m,[39m
+ [90m 54 |[39m                         height[33m:[39m width [33m*[39m [35m0.8[39m[33m,[39m[0m
+
+Import stack:
+
+ src/screens/MultiSignupScreen.tsx
+ | import "../assets/koala1.jpg"
+
+ src/navigation/AppNavigator.tsx
+ | import "../screens/MultiSignupScreen"
+
+ App.tsx
+ | import "./src/navigation/AppNavigator"
+
+ index.ts
+ | import "./App"
+
+ 
+ | import "./index.ts"
+

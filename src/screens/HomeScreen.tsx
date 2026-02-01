@@ -123,7 +123,7 @@ const HomeScreen = () => {
                         </TouchableOpacity>
 
                         <Image
-                            source={require('../assets/panel.jpg')}
+                            source={require('../assets/panel.png')}
                             className=""
                             resizeMode="contain"
                             style={{
@@ -199,7 +199,7 @@ const HomeScreen = () => {
                     }}
                 >
                     <TouchableOpacity><HomeIcon color="#056B87" /></TouchableOpacity>
-                    <TouchableOpacity><BatteryIcon color="#056B87" /></TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate('BatteryStatus')}><BatteryIcon color="#056B87" /></TouchableOpacity>
                     <TouchableOpacity><UserIcon color="#056B87" /></TouchableOpacity>
                     <TouchableOpacity onPress={() => navigation.navigate('TechnicianBooking')}><BoltIcon color="#056B87" /></TouchableOpacity>
                     <TouchableOpacity><ChatIcon color="#056B87" /></TouchableOpacity>

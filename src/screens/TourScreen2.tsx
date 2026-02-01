@@ -60,7 +60,7 @@ const TourScreen2 = () => {
                        and name it 'tour2.jpg' or similar.
                     */}
                     <Image
-                        source={require('../assets/tour1.jpg')} // මෙතනට අලුත් Image එක දාන්න (tour2.jpg)
+                        source={require('../assets/tour1.png')} // මෙතනට අලුත් Image එක දාන්න (tour2.jpg)
                         style={{ 
                             width: width * 0.85, 
                             height: height * 0.4, 

@@ -1,1 +1,45 @@
-bash: timeout: command not found
+
+> test-sdgp@1.0.0 web
+> expo start --web --clear
+
+Starting project at /Users/dinu/Test-SDGP
+Starting Metro Bundler
+warning: Bundler cache is empty, rebuilding (this may take a minute)
+Waiting on http://localhost:8081
+Logs for your project will appear below.
+Web ./index.ts ░░░░░░░░░░░░░░░░  0.0% (0/1)
+Web ./index.ts ▓▓▓▓▓▓▓▓▓▓▓▓░░░░ 76.2% ( 667/2209)
+Web Bundled 6055ms index.ts (2257 modules)
+ LOG  [web] Logs will appear in the browser console
+Unable to resolve "../assets/panel.png" from "src/screens/HomeScreen.tsx"
+[0m [90m 124 |[39m
+ [90m 125 |[39m                         [33m<[39m[33mImage[39m
+[31m[1m>[22m[39m[90m 126 |[39m                             source[33m=[39m{require([32m'../assets/panel.png'[39m)}
+ [90m     |[39m                                              [31m[1m^[22m[39m
+ [90m 127 |[39m                             className[33m=[39m[32m""[39m
+ [90m 128 |[39m                             resizeMode[33m=[39m[32m"contain"[39m
+ [90m 129 |[39m                             style[33m=[39m{{[0m
+
+Import stack:
+
+ src/screens/HomeScreen.tsx
+ | import "../assets/panel.png"
+
+ src/navigation/AppNavigator.tsx
+ | import "../screens/HomeScreen"
+
+ App.tsx
+ | import "./src/navigation/AppNavigator"
+
+ index.ts
+ | import "./App"
+
+ 
+ | import "./index.ts"
+
+Web ./index.ts ░░░░░░░░░░░░░░░░  0.0% (0/1)
+Web Bundled 97ms index.ts (1 module)
+ LOG  [web] Logs will appear in the browser console
+Web ./index.ts ░░░░░░░░░░░░░░░░  0.0% (0/1)
+Web Bundled 203ms index.ts (1 module)
+ LOG  [web] Logs will appear in the browser console

@@ -53,7 +53,7 @@ const TourScreen3 = ({ onNext }: { onNext: () => void }) => {
                 <View className="flex-1 justify-center items-center z-0 relative">
                     {/* Add your 3rd tour image here */}
                     <Image
-                        source={require('../assets/tour1.jpg')} 
+                        source={require('../assets/tour1.png')} 
                         style={{ 
                             width: width * 0.85, 
                             height: height * 0.4, 

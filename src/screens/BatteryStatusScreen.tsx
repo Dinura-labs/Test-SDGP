@@ -12,7 +12,7 @@ import {
     Dimensions
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Menu, Star, ArrowRight, CalendarCheck } from 'lucide-react-native';
+import { Home, Battery, ChevronUp, ChevronDown } from 'lucide-react-native';
 import Svg, { Path } from 'react-native-svg';
 
 // --- Responsive Helpers ---
@@ -28,7 +28,7 @@ const HomeIcon = ({ color = "#999" }) => (
     </Svg>
 );
 
-const BatteryIcon = ({ color = "#999" }) => (
+const BatteryIconSvg = ({ color = "#999" }) => (
     <Svg width="26" height="20" viewBox="0 0 26 20" fill="none">
         <Path fillRule="evenodd" clipRule="evenodd" d="M0 10C0 5.28595 1.49012e-07 2.92894 1.46446 1.46446C2.92894 -1.49012e-07 5.28595 0 10 0H11.875C16.589 0 18.9461 -1.49012e-07 20.4105 1.46446C21.875 2.92894 21.875 5.28595 21.875 10C21.875 14.714 21.875 17.0711 20.4105 18.5355C18.9461 20 16.589 20 11.875 20H10C5.28595 20 2.92894 20 1.46446 18.5355C1.49012e-07 17.0711 0 14.714 0 10ZM12.4751 5.52979C12.8729 5.86126 12.9266 6.45241 12.5952 6.85017L10.7516 9.0625H13.125C13.4888 9.0625 13.8197 9.27287 13.974 9.60237C14.1283 9.93175 14.0781 10.3207 13.8452 10.6001L10.7202 14.3501C10.3887 14.7479 9.79759 14.8016 9.39983 14.4702C9.00206 14.1387 8.94833 13.5476 9.27979 13.1499L11.1234 10.9375H8.75C8.38624 10.9375 8.0553 10.7271 7.90101 10.3976C7.74671 10.0682 7.79691 9.67925 8.02979 9.39987L11.1548 5.64982C11.4863 5.25206 12.0774 5.19832 12.4751 5.52979Z" fill={color} />
         <Path d="M24.0625 12.5C24.0625 13.0177 24.4822 13.4375 25 13.4375C25.5178 13.4375 25.9375 13.0177 25.9375 12.5V7.5C25.9375 6.98224 25.5178 6.5625 25 6.5625C24.4822 6.5625 24.0625 6.98224 24.0625 7.5V12.5Z" fill={color} />
@@ -42,7 +42,7 @@ const UserIcon = ({ color = "#999" }) => (
     </Svg>
 );
 
-const BoltIcon = ({ color = "#056B87" }) => (
+const BoltIcon = ({ color = "#999" }) => (
     <Svg width="12" height="18" viewBox="0 0 12 18" fill="none">
         <Path d="M10.7403 17.6796C10.623 17.6794 10.5079 17.648 10.4068 17.5885C10.3058 17.5291 10.2223 17.4439 10.1651 17.3415L6.43196 10.6478L2.49684 12.0366C2.40538 12.0693 2.30783 12.0812 2.2112 12.0716C2.11457 12.062 2.02127 12.0311 1.938 11.9812C1.85474 11.9312 1.78358 11.8634 1.72965 11.7827C1.67572 11.7019 1.64036 11.6102 1.62611 11.5142L0.00756979 0.758091C-0.0151508 0.609525 0.0136297 0.457657 0.089133 0.327706C0.164636 0.197754 0.282319 0.0975392 0.422639 0.0437016C0.562958 -0.010136 0.717472 -0.0143566 0.860521 0.0317408C1.00357 0.0778381 1.12655 0.17148 1.20903 0.297116L4.99489 6.04248L8.89489 4.46492C8.98808 4.42749 9.08859 4.41183 9.18875 4.41911C9.28892 4.4264 9.3861 4.45645 9.47289 4.50698C9.55968 4.5575 9.6338 4.62717 9.6896 4.71067C9.7454 4.79417 9.78141 4.8893 9.79489 4.98882L11.3929 16.9332C11.4137 17.0853 11.3805 17.2398 11.2993 17.3699C11.218 17.5001 11.0938 17.5977 10.9481 17.6459C10.8812 17.6687 10.8109 17.6801 10.7403 17.6796Z" fill={color} />
     </Svg>
@@ -55,12 +55,13 @@ const ChatIcon = ({ color = "#999" }) => (
     </Svg>
 );
 
-const TechnicianBookingScreen = () => {
-    const [isEnabled, setIsEnabled] = useState(false);
-    const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+const BatteryStatusScreen = () => {
+    const [isSaverEnabled, setIsSaverEnabled] = useState(false);
+    const toggleSaver = () => setIsSaverEnabled(previousState => !previousState);
 
     return (
         <View className="flex-1 bg-white">
+            {/* Background Gradient */}
             <LinearGradient
                 colors={['#FFFDF5', '#EDF7FF']}
                 start={{ x: 0, y: 0 }}
@@ -75,79 +76,80 @@ const TechnicianBookingScreen = () => {
                     className="flex-1"
                 >
                     {/* --- Header --- */}
-                    <View className="flex-row justify-between items-start px-6" style={{ marginTop: hp(3), marginBottom: hp(3) }}>
+                    <View className="flex-row justify-between items-start px-6" style={{ marginTop: hp(3) }}>
                         <View>
-                            <Text className="font-bold text-[#1C1C1E] leading-tight" style={{ fontSize: wp(8) }}>Technicians,</Text>
-                            <Text className="font-bold text-[#1C1C1E] leading-tight" style={{ fontSize: wp(8) }}>Booking</Text>
+                            <Text className="font-bold text-[#1C1C1E] leading-tight" style={{ fontSize: wp(8) }}>Battery Level &,</Text>
+                            <Text className="font-bold text-[#1C1C1E] leading-tight" style={{ fontSize: wp(8) }}>Status Tracking</Text>
                         </View>
                         <TouchableOpacity className="p-2">
-                            <Menu color="#1C1C1E" size={28} />
+                            <Home color="#333" size={26} strokeWidth={1.5} />
                         </TouchableOpacity>
                     </View>
 
-                    {/* --- Top Koala Banner --- */}
-                    <View className="mx-6 relative" style={{ marginBottom: hp(3) }}>
-                        {/* Card Background */}
-                        <View 
-                            className="bg-[#EFF4F6] rounded-[24px] p-6 shadow-sm justify-center"
-                            style={{ 
-                                width: '100%', 
-                                minHeight: hp(22),
-                                paddingRight: wp(35) // Make space for the image
-                            }}
-                        >
-                            <Text className="font-bold text-[#0D1B2A] mb-3 leading-6" style={{ fontSize: wp(4.2) }}>
-                                Why is Solar Panel Maintenance Important ?
-                            </Text>
-                            <Text className="text-[#666] mb-1" style={{ fontSize: wp(3.5) }}>Enhances effectiveness</Text>
-                            <Text className="text-[#666]" style={{ fontSize: wp(3.5) }}>Prevents damage</Text>
-                        </View>
-                        
-                        {/* Overlapping Koala Image */}
+                    {/* --- Koala Image Section --- */}
+                    <View className="items-center justify-center" style={{ marginTop: hp(2), marginBottom: hp(1) }}>
                         <Image
-                            source={require('../assets/techkola.png')}
-                            className="absolute"
-                            style={{
-                                right: -15, // Pushes slightly off the right edge like UI
-                                bottom: -5, // Aligns with bottom
-                                width: wp(48), // Adjusted size to match the large koala
-                                height: wp(52),
-                                zIndex: 10
+                            source={require('../assets/kolabtr.png')}
+                            style={{ 
+                                width: wp(60), 
+                                height: wp(60), 
                             }}
                             resizeMode="contain"
                         />
+                        <Text className="text-[#666] font-medium mt-2" style={{ fontSize: wp(3.5) }}>
+                            85% ( 26h 40m remaining )
+                        </Text>
                     </View>
 
-                    {/* --- Auto Connect Toggle --- */}
-                    <View className="mx-6 bg-[#D8E1E5] rounded-[16px] flex-row items-center justify-between px-5 mb-8" style={{ height: 60 }}>
-                        <Text className="text-[#333] font-medium" style={{ fontSize: wp(4) }}>Automatically Connect</Text>
-                        <Switch
-                            trackColor={{ false: "#767577", true: "#056B87" }}
-                            thumbColor={isEnabled ? "#FFF" : "#FFF"}
-                            ios_backgroundColor="#3e3e3e"
-                            onValueChange={toggleSwitch}
-                            value={isEnabled}
-                            style={{ transform: [{ scaleX: 1 }, { scaleY: 1 }] }}
-                        />
-                    </View>
-
-                    {/* --- Our Services Section --- */}
-                    <View className="px-6">
-                        <Text className="font-bold text-[#056B87] mb-5" style={{ fontSize: wp(5) }}>Our Services</Text>
+                    {/* --- Main Card --- */}
+                    <View className="mx-6 bg-[#EFF6F9] rounded-[24px] p-5 shadow-sm" style={{ minHeight: hp(35) }}>
                         
-                        {/* Service Card 1 */}
-                        <ServiceCard
-                            title="Electrical Services"
-                            rating="4.9 (210 reviews)"
-                            image={require('../assets/technician1.png')}
-                        />
+                        {/* Battery Saver Row */}
+                        <View className="flex-row justify-between items-center mb-4">
+                            <View className="flex-row items-center flex-1">
+                                {/* Icon Box */}
+                                <View className="bg-white p-2 rounded-[12px] mr-3 shadow-sm">
+                                    <Battery size={20} color="#056B87" fill="#056B87" />
+                                </View>
+                                <View>
+                                    <Text className="font-bold text-[#0D1B2A]" style={{ fontSize: wp(4) }}>Battery Saver</Text>
+                                    <Text className="text-[#888] text-[12px]">85% ( 37h 12m remaining )</Text>
+                                </View>
+                            </View>
+                            
+                            <Switch
+                                trackColor={{ false: "#B0BEC5", true: "#056B87" }}
+                                thumbColor={isSaverEnabled ? "#FFF" : "#FFF"}
+                                ios_backgroundColor="#B0BEC5"
+                                onValueChange={toggleSaver}
+                                value={isSaverEnabled}
+                                style={{ transform: [{ scaleX: 0.8 }, { scaleY: 0.8 }] }}
+                            />
+                        </View>
 
-                        {/* Service Card 2 */}
-                        <ServiceCard
-                            title="Solar Panel Cleaning"
-                            rating="4.5 (183 reviews)"
-                            image={require('../assets/technician2.png')}
-                        />
+                        {/* Divider Line */}
+                        <View className="h-[1px] bg-[#D1D9E0] w-full mb-4" />
+
+                        {/* Scenario Section */}
+                        <View className="mb-6">
+                            <Text className="font-bold text-[#0D1B2A] mb-1" style={{ fontSize: wp(4) }}>Scenario</Text>
+                            <Text className="text-[#666] leading-5" style={{ fontSize: wp(3.2) }}>
+                                Identify scenarios to switch between battery saving modes automatically.
+                            </Text>
+                        </View>
+
+                        {/* Dropdown Button */}
+                        <TouchableOpacity 
+                            className="bg-white rounded-[16px] h-[55px] flex-row items-center justify-between px-5 shadow-sm"
+                            activeOpacity={0.7}
+                        >
+                            <Text className="font-bold text-[#0D1B2A]" style={{ fontSize: wp(3.8) }}>Balanced</Text>
+                            <View>
+                                <ChevronUp size={12} color="#0D1B2A" style={{ marginBottom: -3 }} />
+                                <ChevronDown size={12} color="#0D1B2A" />
+                            </View>
+                        </TouchableOpacity>
+
                     </View>
 
                 </ScrollView>
@@ -164,9 +166,10 @@ const TechnicianBookingScreen = () => {
                     }}
                 >
                     <TouchableOpacity><HomeIcon color="#999" /></TouchableOpacity>
-                    <TouchableOpacity><BatteryIcon color="#999" /></TouchableOpacity>
+                    {/* Active Icon (Battery) */}
+                    <TouchableOpacity><BatteryIconSvg color="#056B87" /></TouchableOpacity>
                     <TouchableOpacity><UserIcon color="#999" /></TouchableOpacity>
-                    <TouchableOpacity><BoltIcon color="#056B87" /></TouchableOpacity> 
+                    <TouchableOpacity><BoltIcon color="#999" /></TouchableOpacity> 
                     <TouchableOpacity><ChatIcon color="#999" /></TouchableOpacity>
                 </View>
 
@@ -175,43 +178,4 @@ const TechnicianBookingScreen = () => {
     );
 };
 
-// --- Reusable Service Card Component ---
-const ServiceCard = ({ title, rating, image }: any) => (
-    <View className="bg-[#EAF6F8] rounded-[24px] p-4 flex-row items-center mb-5 shadow-sm">
-        {/* Left Image (Reduced Size) */}
-        <Image
-            source={image}
-            className="rounded-[16px] mr-4"
-            style={{ width: wp(15), height: wp(15) }} // Changed from wp(30) to wp(22)
-            resizeMode="cover"
-        />
-
-        {/* Right Content */}
-        <View className="flex-1 justify-between py-1">
-            <Text className="font-bold text-[#0D1B2A] mb-1" style={{ fontSize: wp(4.2) }}>{title}</Text>
-            
-            {/* Rating */}
-            <View className="flex-row items-center mb-2">
-                <Text className="text-[#555] mr-1" style={{ fontSize: wp(3.2) }}>{rating}</Text>
-                <Star size={14} color="#FFD700" fill="#FFD700" />
-            </View>
-
-            {/* Buttons Row */}
-            <View className="flex-row justify-between items-center gap-2 mt-1">
-                {/* Learn More */}
-                <TouchableOpacity className="border border-[#1C1C1E] rounded-full px-3 py-1.5 flex-row items-center justify-center flex-1">
-                    <Text className="text-[#1C1C1E] font-medium mr-1" style={{ fontSize: wp(2.8) }}>Learn more</Text>
-                    <ArrowRight size={12} color="#1C1C1E" />
-                </TouchableOpacity>
-
-                {/* Book Now */}
-                <TouchableOpacity className="bg-[#056B87] rounded-[8px] px-3 py-1.5 flex-row items-center justify-center flex-1">
-                    <Text className="text-white font-bold mr-1" style={{ fontSize: wp(2.8) }}>Book Now</Text>
-                    <CalendarCheck size={12} color="#FFF" />
-                </TouchableOpacity>
-            </View>
-        </View>
-    </View>
-);
-
-export default TechnicianBookingScreen;
+export default BatteryStatusScreen;

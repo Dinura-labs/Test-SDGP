@@ -48,12 +48,12 @@ const MultiSignupScreen = () => {
                    නමුත් Screen height එකෙන් 40% කට වඩා ලොකු වෙන්න දෙන්නේ නෑ.
                 */}
                 <Image
-                    source={require('../assets/koala1.jpg')}
+                    source={require('../assets/koala1.png')}
                     style={{
                         width: width * 0.8,
                         height: width * 0.8,
                         maxWidth: 350,
-                        maxHeight: height * 0.4, // උස සීමා කිරීම (Small screens සඳහා)
+                        maxHeight: height * 0.4, // උස සීමා කිරීම (Small screens සඳහා) 
                         marginBottom: 20
                     }}
                     resizeMode="contain"
