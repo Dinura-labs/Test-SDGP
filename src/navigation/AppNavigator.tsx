@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 // Screens Import
 import WelcomeScreen from '../screens/WelcomeScreen';
 import MultiSignupScreen from '../screens/MultiSignupScreen';
+import HomeScreen from '../screens/HomeScreen';
 import TourScreen1 from '../screens/TourScreen1';
 import TourScreen2 from '../screens/TourScreen2';
 import TourScreen3 from '../screens/TourScreen3';
@@ -15,6 +16,7 @@ import TourScreen5 from '../screens/TourScreen5'; // Import TourScreen5
 export type RootStackParamList = {
   Welcome: undefined;
   Signup: undefined;
+  Home: undefined;
   Tour1: undefined;
   Tour2: undefined;
   Tour3: undefined;
@@ -87,12 +89,15 @@ export default function AppNavigator() {
           {(props) => (
             <TourScreen5 
               onNext={() => {
-                console.log("All Tours Finished!");
-                props.navigation.navigate('Welcome'); 
+                console.log("All Tours Finished! Navigating to Home Screen");
+                props.navigation.navigate('Home'); 
               }} 
             />
           )}
         </Stack.Screen>
+
+        {/* 8. Home Screen */}
+        <Stack.Screen name="Home" component={HomeScreen} />
 
       </Stack.Navigator>
     </NavigationContainer>
