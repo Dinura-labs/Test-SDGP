@@ -13,15 +13,16 @@ import {
 } from 'react-native';
 import { Mail, Menu, ArrowLeft, Eye, EyeOff, Check } from 'lucide-react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import SocialButton from '../components/SocialButton';
 import { useNavigation } from '@react-navigation/native';
-import { RootStackNavigationProp } from '../navigation/AppNavigator';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import SocialButton from '../components/SocialButton';
+import { RootStackParamList } from '../navigation/AppNavigator';
 
 // Screen එකේ පළල සහ උස ලබා ගැනීම
 const { width, height } = Dimensions.get('window');
 
 const MultiSignupScreen = () => {
-    const navigation = useNavigation<RootStackNavigationProp>();
+    const navigation = useNavigation<NativeStackNavigationProp<RootStackParamList>>();
     const [step, setStep] = useState(1);
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
@@ -30,12 +31,12 @@ const MultiSignupScreen = () => {
     // Step 1: Responsive Layout for Mobile
     const renderStep1 = () => (
         <ScrollView 
-            contentContainerStyle={{
-                flexGrow: 1,
-                justifyContent: 'space-between',
-                alignItems: 'center',
-                paddingBottom: 20,
-                paddingHorizontal: 24
+            contentContainerStyle={{ 
+                flexGrow: 1, 
+                justifyContent: 'space-between', 
+                alignItems: 'center', 
+                paddingBottom: 20, 
+                paddingHorizontal: 24 
             }}
             showsVerticalScrollIndicator={false}
             className="w-full"
@@ -53,7 +54,7 @@ const MultiSignupScreen = () => {
                         width: width * 0.8,
                         height: width * 0.8,
                         maxWidth: 350,
-                        maxHeight: height * 0.4, // උස සීමා කිරීම (Small screens සඳහා) 
+                        maxHeight: height * 0.4, // උස සීමා කිරීම (Small screens සඳහා)
                         marginBottom: 20
                     }}
                     resizeMode="contain"
@@ -71,7 +72,7 @@ const MultiSignupScreen = () => {
                     <View className="items-center mt-1">
                         <Text 
                             className="text-[#0D1B2A] font-extrabold text-center"
-                            style={{
+                            style={{ 
                                 fontSize: width * 0.085, // ලොකු අකුරු Responsive කළා
                                 color: '#0D1B2A',
                                 lineHeight: width * 0.1
@@ -186,6 +187,7 @@ const MultiSignupScreen = () => {
             </ScrollView>
         </KeyboardAvoidingView>
     );
+
     return (
         <LinearGradient
             colors={step === 1 ? ['#FFFDF5', '#F0F7FF'] : ['#F8FBFF', '#F8FBFF']}
@@ -214,7 +216,7 @@ const MultiSignupScreen = () => {
                 </View>
             </SafeAreaView>
         </LinearGradient>
-    );
+    );  
 };
 
 export default MultiSignupScreen;

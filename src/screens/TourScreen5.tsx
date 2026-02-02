@@ -10,10 +10,14 @@ import {
     StatusBar
 } from 'react-native';
 import { ArrowRight, X } from 'lucide-react-native';
+import { useNavigation } from '@react-navigation/native';
+import { RootStackNavigationProp } from '../navigation/AppNavigator';
 
 const { width, height } = Dimensions.get('window');
 
-const TourScreen5 = ({ onNext }: { onNext: () => void }) => {
+const TourScreen5 = () => {
+    const navigation = useNavigation<RootStackNavigationProp>();
+
     return (
         // 1. Background Theme: Light Grey/Beige (#F5F5F5)
         <View className="flex-1 bg-[#F5F5F5] relative overflow-hidden">
@@ -115,7 +119,7 @@ const TourScreen5 = ({ onNext }: { onNext: () => void }) => {
                         {/* Next Button - Light Grey Background */}
                         <TouchableOpacity
                             className="w-[72px] h-[72px] bg-[#E0E0E0] rounded-full justify-center items-center mb-4"
-                            onPress={onNext}
+                            onPress={() => navigation.navigate('Home')}
                             activeOpacity={0.8}
                             style={{ 
                                 shadowColor: '#616161',

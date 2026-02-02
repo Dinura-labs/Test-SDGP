@@ -119,4 +119,4 @@ const WelcomeScreen = () => {
     );
 };
 
-export default WelcomeScreen;
+export default WelcomeScreen; 
